@@ -38,8 +38,18 @@ console.log(cumLaudeCount);
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
+function cumLaude (grades){
+let cumLaudeCount = 0;
+    for (let i = 0; i < grades.length; i++)
+    if (grades[i] >= 8) {
+    cumLaudeCount++;
+}
+    return cumLaudeCount;
+}
 
-
+console.log(cumLaude(grades))
+console.log(cumLaude([6, 4, 5]))
+console.log(cumLaude([8,9,4,6,10]))
 
 /* Opdracht  2: Gemiddeld cijfer */
 
@@ -52,6 +62,8 @@ console.log(cumLaudeCount);
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 6.642857142857143
+
+
 
 
 /* 2b: Omschrijven tot een herbruikbare functie */
