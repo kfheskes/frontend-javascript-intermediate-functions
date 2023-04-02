@@ -56,15 +56,20 @@ console.log(cumLaude([8,9,4,6,10]))
 /* 2a: Script schrijven  */
 // De studenten-administratie moet ieder blok opnieuw berekenen wat het gemiddelde eindcijfer is, maar we beginnen met de grades array van hierboven.
 // Schrijf de stapjes om dit te kunnen berekenen eerst uit en vraag jezelf de volgende dingen af:
-// * Hoe wordt een gemiddelde berekend?
-// * Wat moet ik verzamelen uit de array van cijfers om uiteindelijk een gemiddelde te kunnen berekenen?
-// * Hoe zorgt ik ervoor dat ik alle waardes uit de array kan langslopen, ook als de array wel 100 entries zou bevatten?
+// * Hoe wordt een gemiddelde berekend? (door alles bij elkaar op te tellen en het aantal delen door het totaal).
+// * Wat moet ik verzamelen uit de array van cijfers om uiteindelijk een gemiddelde te kunnen berekenen? de hoeveelheid cijfers
+// * Hoe zorgt ik ervoor dat ik alle waardes uit de array kan langslopen, ook als de array wel 100 entries zou bevatten? (for loop maken.
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 6.642857142857143
 
+let count = 0;
 
-
+for (let i = 0; i <grades.length; i++){
+count = count + grades[i];
+}
+const average = count / grades.length;
+console.log(average)
 
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
@@ -77,24 +82,44 @@ console.log(cumLaude([8,9,4,6,10]))
 // averageGrade([8, 9, 4, 6, 10]) geeft xxxx
 
 
+function averageGrade (grades) {
+    let sum = 0
+    for (let i = 0; i <grades.length; i++){
+    sum = sum + grades[i];
+    }
+    const average = sum / grades.length;
+    return average.toFixed(2);
+}
+console.log(averageGrade(grades));
+console.log(averageGrade([6,4,5]));
+console.log(averageGrade([8,9,4,6,10]));
+
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
 
-
-
+// gebruik gemaakt van toFixed
 
 /* Bonusopdracht: hoogste cijfer */
 
 /* 3a: Script schrijven  */
 // Schrijf een script die op basis van de grades array (hierboven) checkt wat het hoogst behaalde cijfer is. Je mag hier geen bestaande methoden voor gebruiken. Schrijf de stapjes eerst uit en vraag jezelf de volgende dingen af:
-// * Hoe kan ik iedere waarde van de array langsgaan?
+// * Hoe kan ik iedere waarde van de array langsgaan? loop
 // * Op welke conditie moet ik checken?
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan opslaan?
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 9
 
+
+    let highest = 0
+    for (let i = 1; i < grades.length; i++){
+        if (grades[i] > highest) {
+            highest = grades[i]
+        }
+
+}
+console.log(highest)
 
 /* 3b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
@@ -105,3 +130,8 @@ console.log(cumLaude([8,9,4,6,10]))
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+
+// function highestGrade (grades) {
+//     let highest = grades[0];
+//     for 9let i=1; i < grades.length; i++
+// }
